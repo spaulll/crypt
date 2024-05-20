@@ -43,11 +43,11 @@ def decryption(cipher, nB, m , a):
     return pointAdd(x, y, m, a)
 
 
-G = list(map(int, input("Enter the cordinates of G(separated by <space>): ").strip().split()))[:2]
+G = list(map(int, input("Enter the cordinates of G(separated by <space>): ").strip().split()))[:2]    #1,5
 
-m = int(input("Enter the modulas: "))
-a = int(input("Enter the value of a: "))
-b = int(input("Enter the value of b: "))
+m = int(input("Enter the modulas: "))    #11
+a = int(input("Enter the value of a: "))    #1
+b = int(input("Enter the value of b: "))    #1
 
 n = randint(2,10)              #Public key of A
 nA = randint(2,n)              #Private key of a
@@ -57,11 +57,12 @@ n = randint(2,10)              #Public key of A
 nB = randint(2,n)              #Private key of b
 pB = pointMul(nB, G, m, a)
 
-msg = list(map(int, input("Enter the message cordinates (separated by <space>): ").strip().split()))[:2]
-print(f"Message cordinate is: {msg}")
+msg = list(map(int, input("Enter the message cordinates (separated by <space>): ").strip().split()))[:2]     # 4,6
+print(f"Message cordinate is: {msg}")   
 
 cipher = encryption(G, pB, msg, m, a)
-print(f"Cipher text is: {cipher}")
+print(f"Cipher text is: {cipher}")    
 
 pT = decryption(cipher, nB, m , a)
 print(f"Decrypted text is: {pT}")
+
